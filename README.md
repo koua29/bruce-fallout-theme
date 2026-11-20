@@ -1,69 +1,82 @@
 # ☢️ Fallout Pip-Boy — Bruce Theme
 
+<p align="center">🇺🇸 <b>English</b> · 🇫🇷 <a href="README.fr.md">Français</a></p>
+
 [![Bruce firmware](https://img.shields.io/badge/firmware-Bruce-8A2BE2?logo=github)](https://github.com/BruceDevices/firmware) [![Device](https://img.shields.io/badge/device-LilyGO%20T--Embed%20CC1101-1E90FF)](https://github.com/BruceDevices/firmware) [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-> **EN** — A **Fallout Pip-Boy** UI theme for the **[Bruce firmware](https://github.com/BruceDevices/firmware)** on the LilyGO T-Embed CC1101 (320×170). Rusty metal bezel, phosphor-green CRT, Vault-Boy in the corner. Each menu entry shows a green picto on the left and a **VT323 terminal** stack on the right: previous item (small), current item (large), next item (small).
-
-> **FR** — Un thème UI **Fallout Pip-Boy** pour le firmware **[Bruce](https://github.com/BruceDevices/firmware)** sur LilyGO T-Embed CC1101 (320×170). Cadre métal rouillé, CRT vert phosphore, Vault Boy dans le coin. Chaque entrée affiche un picto vert à gauche et une pile **terminal VT323** à droite : menu précédent (petit), courant (grand), suivant (petit).
+A **Fallout Pip-Boy** UI theme for the **[Bruce firmware](https://github.com/BruceDevices/firmware)** on the LilyGO T-Embed CC1101 (320×170). Rusty metal bezel, phosphor-green CRT, Vault Boy in the corner. Each menu entry shows a green picto on the left and a **VT323 terminal** stack on the right: previous item (small), current item (large), next item (small).
 
 ![Fallout Pip-Boy theme](docs/hero.png)
 
-## 🎮 Rendu / Look
+## 🎮 Look
 
-Le libellé du menu est **intégré dans l'image** (`label: 0`), façon terminal Pip-Boy :
+The menu label is **baked into the image** (`label: 0`), Pip-Boy terminal style:
 
-- 🟢 **Picto vert** de l'entrée courante à gauche (halo phosphore + scanlines CRT).
-- 🔠 À droite, de haut en bas : **précédent** (petite police) · **COURANT** (très grande) · **suivant** (petite police).
-- ⚙️ 14 pictos dessinés à la main : WiFi, BLE, RF, NRF24, LoRa, IR, Ethernet, GPS, RFID, Files, Scripts, Clock, Others, Config (+ FM & Connect).
+- 🟢 **Green picto** of the current entry on the left (phosphor glow + CRT scanlines).
+- 🔠 On the right, top to bottom: **previous** (small font) · **CURRENT** (very large) · **next** (small font).
+- ⚙️ 14 hand-drawn pictos: WiFi, BLE, RF, NRF24, LoRa, IR, Ethernet, GPS, RFID, Files, Scripts, Clock, Others, Config (+ FM & Connect).
 
-## 📦 Contenu
+## 📦 Contents
 
-`Fallout_PipBoy/` contient **4 tailles** (une par gabarit d'écran Bruce), chacune avec **16 PNG** + son `.json` :
+`Fallout_PipBoy/` contains **4 sizes** (one per Bruce screen template), each with **16 PNGs** + its `.json`:
 
-| Dossier | Image | Écran cible |
+| Folder | Image | Target screen |
 |---|---|---|
 | `105px/` | 240×105 | M5StickC Plus (240×135) |
 | `140px/` | 320×140 | **T-Embed CC1101 / Cardputer (320×170)** |
-| `180px/` | 320×180 | écrans ~320×210 |
-| `192px/` | 320×192 | écrans ~320×222 |
+| `180px/` | 320×180 | ~320×210 screens |
+| `192px/` | 320×192 | ~320×222 screens |
 
-> ℹ️ **Barre d'état** — Bruce réserve **30 px en haut** (batterie / heure / WiFi). La bonne taille = **hauteur de ton écran − 30**. Pour le **T-Embed CC1101 (320×170) → `140px`**. Le firmware place l'image sous la barre d'état, donc les icônes ne mordent pas le cadre et ne clignotent pas au changement de menu.
+> ℹ️ **Status bar** — Bruce reserves **30 px at the top** (battery / time / WiFi). The right size = **your screen height − 30**. For the **T-Embed CC1101 (320×170) → `140px`**. The firmware draws the image below the status bar, so the icons don't overlap the bezel and don't flicker when you switch menus.
 
 ## 🚀 Installation
 
-1. Copie le dossier **`Fallout_PipBoy`** à la racine de la carte SD.
-2. Sur l'appareil : **Config → UI Theme → `Fallout_PipBoy/<taille>/Theme_Fallout_PipBoy.json`** (taille = hauteur écran − 30 ; **`140px` pour le T-Embed CC1101**).
-3. Via WiFi : **Files → WebUI**, upload le dossier, puis sélectionne le `.json`.
+1. Copy the **`Fallout_PipBoy`** folder to the root of the SD card.
+2. On the device: **Config → UI Theme → `Fallout_PipBoy/<size>/Theme_Fallout_PipBoy.json`** (size = screen height − 30; **`140px` for the T-Embed CC1101**).
+3. Over WiFi: **Files → WebUI**, upload the folder, then select the `.json`.
 
-## ⚠️ Ordre du menu (voisins)
+## ⚠️ Menu order (neighbours)
 
-Les libellés **précédent / suivant** sont peints dans chaque image selon l'**ordre par défaut** du menu Bruce T-Embed CC1101 :
-`WiFi → BLE → RF → NRF24 → LoRa → IR → Ethernet → GPS → RFID → Files → Scripts → Clock → Others → Config` (en boucle).
+The **previous / next** labels are painted into each image following the **default order** of the Bruce T-Embed CC1101 menu:
+`WiFi → BLE → RF → NRF24 → LoRa → IR → Ethernet → GPS → RFID → Files → Scripts → Clock → Others → Config` (looping).
 
-Si tu **désactives ou réordonnes** des menus (`Config → Main Menu`), les voisins affichés ne correspondront plus. Dans ce cas, ouvre une issue avec ton ordre exact et je régénère le thème pour ta config.
+If you **disable or reorder** menus (`Config → Main Menu`), the neighbours shown will no longer match. In that case, open an issue with your exact order and I'll regenerate the theme for your setup.
 
-## 🛒 Matériel / Hardware
+## 🛒 Hardware
 
-Accessoires utiles pour ce projet — liens affiliés Amazon :
+*Amazon affiliate links: if you buy through these links, the project earns a small commission at no extra cost to you.*
 
-| [<img src="docs/amazon-B0D45MSMJR.jpg" width="200" alt="Anker 545 power bank (10 000 mAh)">](https://www.amazon.com/dp/B0D45MSMJR?linkCode=ll2&tag=koua29bfallouttheme-20&ref_=as_li_ss_tl) | [<img src="docs/amazon-B0C1FCZM94.jpg" width="200" alt="433 MHz SMA antenna (2-pack)">](https://www.amazon.com/dp/B0C1FCZM94?linkCode=ll2&tag=koua29bfallouttheme-20&ref_=as_li_ss_tl) | [<img src="docs/amazon-B0B7NVMBPL.jpg" width="200" alt="SanDisk 64 GB microSD (2-pack)">](https://www.amazon.com/dp/B0B7NVMBPL?linkCode=ll2&tag=koua29bfallouttheme-20&ref_=as_li_ss_tl) |
-|:---:|:---:|:---:|
-| 🔋 **[Anker 545 power bank (10 000 mAh)](https://www.amazon.com/dp/B0D45MSMJR?linkCode=ll2&tag=koua29bfallouttheme-20&ref_=as_li_ss_tl)**<br><sub>Pour faire tourner le T-Embed loin d'une prise</sub> | 📡 **[433 MHz SMA antenna (2-pack)](https://www.amazon.com/dp/B0C1FCZM94?linkCode=ll2&tag=koua29bfallouttheme-20&ref_=as_li_ss_tl)**<br><sub>Antenne sub-GHz pour la radio CC1101</sub> | 💾 **[SanDisk 64 GB microSD (2-pack)](https://www.amazon.com/dp/B0B7NVMBPL?linkCode=ll2&tag=koua29bfallouttheme-20&ref_=as_li_ss_tl)**<br><sub>Pour les thèmes, scripts et captures Bruce</sub> |
+<table>
+<tr>
+<td align="center" width="33%">
+  <a href="https://www.amazon.com/dp/B0D45MSMJR?linkCode=ll2&amp;tag=koua29bfallouttheme-20&amp;ref_=as_li_ss_tl"><img src="docs/amazon-B0D45MSMJR.jpg" width="200" alt="Anker 545 power bank (10,000 mAh)"></a><br>
+  <b><a href="https://www.amazon.com/dp/B0D45MSMJR?linkCode=ll2&amp;tag=koua29bfallouttheme-20&amp;ref_=as_li_ss_tl">Anker 545 power bank (10,000 mAh)</a></b><br><sub>Keeps the T-Embed running away from an outlet</sub>
+</td>
+<td align="center" width="33%">
+  <a href="https://www.amazon.com/dp/B0C1FCZM94?linkCode=ll2&amp;tag=koua29bfallouttheme-20&amp;ref_=as_li_ss_tl"><img src="docs/amazon-B0C1FCZM94.jpg" width="200" alt="433 MHz SMA antenna (2-pack)"></a><br>
+  <b><a href="https://www.amazon.com/dp/B0C1FCZM94?linkCode=ll2&amp;tag=koua29bfallouttheme-20&amp;ref_=as_li_ss_tl">433 MHz SMA antenna (2-pack)</a></b><br><sub>Sub-GHz antenna for the CC1101 radio</sub>
+</td>
+<td align="center" width="33%">
+  <a href="https://www.amazon.com/dp/B0B7NVMBPL?linkCode=ll2&amp;tag=koua29bfallouttheme-20&amp;ref_=as_li_ss_tl"><img src="docs/amazon-B0B7NVMBPL.jpg" width="200" alt="SanDisk 64 GB microSD (2-pack)"></a><br>
+  <b><a href="https://www.amazon.com/dp/B0B7NVMBPL?linkCode=ll2&amp;tag=koua29bfallouttheme-20&amp;ref_=as_li_ss_tl">SanDisk 64 GB microSD (2-pack)</a></b><br><sub>For Bruce themes, scripts and captures</sub>
+</td>
+</tr>
+</table>
 
-<sub>En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises. · As an Amazon Associate I earn from qualifying purchases.</sub>
+<sub>As an Amazon Associate I earn from qualifying purchases.</sub>
 
-## 🎨 Crédits
+## 🎨 Credits
 
-- Fond Pip-Boy & thème par **koua29**.
-- Police de rendu : **[VT323](https://fonts.google.com/specimen/VT323)** (SIL Open Font License).
-- Tourne sur l'excellent **[Bruce firmware](https://github.com/BruceDevices/firmware)**.
+- Pip-Boy background & theme by **koua29**.
+- Rendering font: **[VT323](https://fonts.google.com/specimen/VT323)** (SIL Open Font License).
+- Runs on the excellent **[Bruce firmware](https://github.com/BruceDevices/firmware)**.
 
-## ☕ Un café ?
+## ☕ Buy me a coffee
 
-Si ce thème te plaît :
+If you like this theme:
 
 <img src="docs/paypal-qr.png" width="180" alt="PayPal" />
 
-## 📄 Licence
+## 📄 License
 
-**MIT** — voir [LICENSE](LICENSE). Fallout / Pip-Boy / Vault Boy sont des marques de Bethesda ; ce thème est un projet fan non officiel, non affilié.
+**MIT** — see [LICENSE](LICENSE). Fallout / Pip-Boy / Vault Boy are trademarks of Bethesda; this theme is an unofficial fan project, not affiliated.
